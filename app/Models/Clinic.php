@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Clinic extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'code',
+        'name',
+        'ein_documentation',
+        'address',
+        'neighborhood',
+        'city',
+        'state',
+        'zipcode',
+        'phone',
+        'specialty',
+    ];
 }
