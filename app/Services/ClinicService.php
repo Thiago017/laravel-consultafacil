@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Http\Requests\CreateClinic;
+use App\Http\Requests\UpdateClinic;
 use App\Repositories\ClinicRepository;
 use App\Models\Clinic;
 
@@ -19,10 +20,22 @@ class ClinicService
         return $this->repository->findById($id);
     }
 
-    public function create(CreateClinic $clinicData): ?Clinic
+    public function store(CreateClinic $clinicData): ?Clinic
     {
         $clinic = new Clinic();
         $clinic->fill($clinicData->toArray());
-        return $this->repository->create($clinic);
+        return $this->repository->store($clinic);
+    }
+
+    public function update(int $id, UpdateClinic $updateClinic)
+    {
+        $clinicData = new Clinic();
+        $clinicData->fill($updateClinic->toArray());
+        return $this->repository->update($id, $clinicData);
+    }
+
+    public function delete(int $id): void
+    {
+        $this->repository->delete($id);
     }
 }

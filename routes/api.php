@@ -13,4 +13,5 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 
 //Clinic
 Route::get('clinic/{id}', [ClinicController::class, 'findById'])->name('clinic.findById');
-Route::post('clinic', [ClinicController::class, 'create'])->name('clinic.create');
+Route::post('clinic', [ClinicController::class, 'store'])->name('clinic.store');
+Route::put('clinic/{id}', [ClinicController::class, 'update'])->name('clinic.update');
